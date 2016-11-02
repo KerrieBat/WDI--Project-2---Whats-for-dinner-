@@ -1,0 +1,19 @@
+<!--fix this for dinner  -->
+<form action = "/get_movie" method="get">
+  <h2>Please type in the name of the movie</h2>
+  <input name="movie_name" type="text" >
+  <button class= "btn">Get movie</button>
+
+</form>
+<section>
+
+  <p id="sorry">
+    Sorry, <%= @error %>
+  </p>
+
+</section>
+
+<aside class="post">
+  <img src="<%= @movie_poster %>" alt="" />
+
+</aside>

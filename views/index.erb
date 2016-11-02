@@ -1,0 +1,26 @@
+<!-- Is this needed for dinner????? -->
+
+<form action = "/search" method="get">
+  <h2>Please type in the name of the movie</h2>
+  <input name="movie_name" type="text" >
+  <button class= "btn">Get movie</button>
+
+</form>
+<section>
+
+
+  <p id = "info">
+    Movie     : <%= @movie_title %><br>
+    Year      : <%= @movie_year %><br>
+    Rating    : <%= @rating %><br>
+    Plot      : <%= @movie_plot %><br>
+    Director  : <%= @director %><br>
+    Starring  : <%= @cast %><br>
+
+  </p>
+</section>
+
+<aside class="post">
+  <img src="<%= @movie_poster %>" alt="" />
+
+</aside>

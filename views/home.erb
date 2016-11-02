@@ -1,0 +1,21 @@
+
+<% if logged_in? %>
+<h2>Hello <%= current_user.username %></h2>
+<% end %>
+<section>
+  <form  action="/recipe/get" method="get">
+    <button>Get Dinner Idea</button>
+  </form>
+
+  <form  action="/recipe/add" method="post">
+    <button>Add in my favourite recipe</button>
+  </form>
+
+  <form  action="/recipe/plan" method="get">
+    <button>Plan a weeks dinners</button>
+  </form>
+</section>
+  <p>  Latest recipe uploaded   </p>
+  <!--put details from @latest here  -->
+  <img src="" alt="Last recipe" />
+  <!--insert last image uploaded and corresponding username and recipe name and description can see it here-->
