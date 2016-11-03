@@ -3,54 +3,43 @@
 <html lang = "en">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="stylesheets\style.css">
+    <link rel="stylesheet" href="/style.css">
     <link href="https://fonts.googleapis.com/css?family=Caveat+Brush" rel="stylesheet">
-
-
-    <link rel="shortcut icon" href="images\beefavicon.ico">
-
+    <link rel="shortcut icon" href="images/beefavicon.ico">
     <title>WFD?</title>
   </head>
   <body>
+  <header>
+      <h1>What's for dinner?</h1>
 
-    <h1>What's for dinner?</h1>
-    <img src="images\cutlery-377700_1280.jpg" ><br>
+  </header>
 
-
-    <%= session[:user_id] %>
-
+  <h2>
+    <!-- <%= session[:user_id] %> -->
     <% if logged_in? %>
-    logged in as <%= current_user.username %>
+  logged in as <%= current_user.username %></h2>
 
-    <form class="" action="/session" method="post">
-    <input type="hidden" name="_method" value="delete">
 
-      <button >LOGOUT</button>
-    </form>
+        <form class="inline" action="/session" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <button >LOGOUT</button>
+      </form>
 
-    <% else %>
+      <% else %>
 
-    <form class="" action="/session/new" method="get">
-      <button >LOGIN</button>
-    </form>
-
-    <br>
-    <form class="" action="/session/signup" method="get">
-      <button >SIGN UP</button>
-    </form>
-
-    <!-- <a href = "/session/new"> LOGIN </a>
-    <a href = "/session/signup"> SIGN UP </a> -->
+      <form class="inline" action="/session/signup" method="get">
+        <button >SIGN UP</button>
+      </form>
+      <br>
+      <form class="inline" action="/session/new" method="get">
+        <button >LOGIN</button>
+      </form>
 
     <% end%>
 
-
-
     <%= yield %>
 
-
-
-    <footer>director kb, producer kb </footer>
+    <footer>designed by kb </footer>
 
   </body>
 </html>

@@ -1,3 +1,4 @@
 class Category <ActiveRecord::Base
-  has_many :recipes_categories
+  has_many :links
+  has_many :recipes, through: :links
 end

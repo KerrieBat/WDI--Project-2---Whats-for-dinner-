@@ -4,10 +4,10 @@ require 'pry'
 require 'sinatra'
 require 'sinatra/reloader'
 require_relative 'db_config'
-require_relative 'models/dinner'
+require_relative 'models/recipe'
 require_relative 'models/category'
 require_relative 'models/user'
-require_relative 'models/dinner_category'
+require_relative 'models/link'
 
 enable :sessions
 
@@ -26,7 +26,8 @@ get '/' do
 
 "hello world"
 # get latest entry from recipes table
-@latest = Recipe.last(1)
+@latest = Recipe.last
+@username = User.find_by(id: @latest.user_id)
   erb :home
 end
 
@@ -45,7 +46,7 @@ get '/recipe' do
   erb :recipe
 end
 
-post '/recipe/add' do
+get '/recipe/add' do
   redirect to '/session/new' if !logged_in?
   # @categories = Category.all
 
@@ -61,18 +62,72 @@ post '/recipe' do
   new_dinner.recipe = params[:recipe]
   new_dinner.photo = params[:photo]
   # add all the checkbox values
-  Category.all.each do |category|
-    #the code here is called once for each user
-    # user is accessible by 'user' variable
-    new_link = Recipe_category.new
-    if params[:category] != nil
-      new_link.recipe_id = new_dinner.id
-      new_link.category_id = category.category_id
-      # new_link.vegetarian = true
-      new_link.save
-    end
-    binding.pry
+  if params.include?('hot')
+    category = Category.find_by(category_name: 'hot')
+    new_dinner.categories << category
   end
+  if params.include?('healthy')
+    category = Category.find_by(category_name: 'healthy')
+    new_dinner.categories << category
+  end
+  if params.include?('cold')
+    category = Category.find_by(category_name: 'cold')
+    new_dinner.categories << category
+  end
+  if params.include?('vegetarian')
+    category = Category.find_by(category_name: 'vegetarian')
+    new_dinner.categories << category
+  end
+  if params.include?('no_cook')
+    category = Category.find_by(category_name: 'no_cook')
+    new_dinner.categories << category
+  end
+  if params.include?('gluten_free')
+    category = Category.find_by(category_name: 'gluten_free')
+    new_dinner.categories << category
+  end
+  if params.include?('dairy_free')
+    category = Category.find_by(category_name: 'dairy_free')
+    new_dinner.categories << category
+  end
+  if params.include?('nightshade_free')
+    category = Category.find_by(category_name: 'nightshade_free')
+    new_dinner.categories << category
+  end
+  if params.include?('spicy')
+    category = Category.find_by(category_name: 'spicy')
+    new_dinner.categories << category
+  end
+  if params.include?('kid_friendly')
+    category = Category.find_by(category_name: 'kid_friendly')
+    new_dinner.categories << category
+  end
+  if params.include?('will_impress')
+    category = Category.find_by(category_name: 'will_impress')
+    new_dinner.categories << category
+  end
+  if params.include?('less_than_30')
+    category = Category.find_by(category_name: 'less_than_30')
+    new_dinner.categories << category
+  end
+
+
+
+
+
+  # ['hot', 'dessert',]
+  # Category.all.each do |category|
+  #   #the code here is called once for each user
+  #   # user is accessible by 'user' variable
+  #   # new_link = Link.new
+  #   # if params[:category] != nil
+  #   #   new_link.recipe_id = new_dinner.id
+  #   #   new_link.category_id = category.category_id
+  #   #   # new_link.vegetarian = true
+  #   #   new_link.save
+  #   # end
+  #   # binding.pry
+  # end
   # if params[:hot] == nil
   #   new_dinner.hot = false
   # else
@@ -130,7 +185,7 @@ post '/recipe' do
   # end
 
   new_dinner.save
-
+redirect to '/'
 end
 
 get '/recipe/plan' do

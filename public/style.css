@@ -1,63 +1,77 @@
 
 
 /*All styling for movies below!!!!!*/
-
-section {
-  color: white;
-  width: 60%;
-  display: inline-block;
-  font-size: 20px;
-  vertical-align: top;
-  border: 2px solid white;
-  padding-top:2%;
-  padding-bottom:20%;
-  padding-left: 5%;
-  padding-right: 5%;
-}
-form {
-  padding-bottom: 2%;
-}
 body {
   /*width: 80%;*/
   font-family: 'Caveat Brush', cursive;
-
-  /*background color: #e86a3e;*/
-  background: #636365;
+  color: oldlace;
+  /*text-shadow: 2px 2px white;*/
+  background: black;
   margin-left: 10%;
   margin-right: 10%;
 }
-
+header{
+  background-image: url("images/cropped-cutlery.jpg");
+  background-size: contain;
+}
 h1 {
-  max width = 59%;
-  display: inline-block;
-  /*padding-bottom: 30px;*/
+  /*display: inline-block;*/
   vertical-align: top;
-  font-size: 40px;
-  background-image: "images\cutlery-377700_1280.jpg";
+  font-size: 60px;
+  text-align: center;
+  margin: 0;
+  padding: 1%;
+  color: darkred;
+  text-shadow: 2px 2px oldlace;
+
+}
+section {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  /*width: 80%;*/
+  /*display: inline-block;*/
+  font-size: 20px;
+  vertical-align: top;
+  border: 2px solid white;
+}
+/*.buttons{
+  display: flex;
+  justify-content: space-around;
+}*/
+form {
+  padding-bottom: 2%;
+}
+#first {
+  display: inline-block;
+}
+.inline{
+  display: inline-block;
+}
+#sub{
+  display: inline-block;
 }
 h2 {
-  color: black;
   font-size: 25px;
+  margin: 0;
 }
 button {
-  color: white;
-  font-size: 25px;
+  font-size: 18px;
+  display: inline-block;
+}
+.check{
+  display: inline-block;
 }
 aside {
     display: inline-block;
     width: 20%;
 }
-#clapper{
-  max-width: 20%;
-  max-height: 20%;
-  display: inline-block;
-
+p {
+  font-size: 18px;
+  margin: 0;
+  padding: 1%;
 }
-#poster{
-  display: inline-block;
-  width: 20%;
-}
-
+/*
 .btn {
   background: #755043;
   background-image: -webkit-linear-gradient(top, #755043, #636365);
@@ -82,8 +96,6 @@ aside {
   background-image: -ms-linear-gradient(top, #636365, #755043);
   background-image: -o-linear-gradient(top, #636365, #755043);
   background-image: linear-gradient(to bottom, #636365, #755043);
-  text-decoration: none;
-  color: white;
 }
 
 input {
@@ -96,10 +108,7 @@ input {
   -webkit-border-radius: 10;
   -moz-border-radius: 10;
   border-radius: 10px;
-  font-family: Arial;
   width: 300px;
-  color: white;
   font-size: 20px;
   padding: 10px ;
-  text-decoration: none;
-}
+}*/

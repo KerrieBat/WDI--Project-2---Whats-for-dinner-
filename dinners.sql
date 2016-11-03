@@ -34,7 +34,7 @@ CREATE TABLE categories (
   less_than_30 BOOLEAN
 );
 
-CREATE TABLE recipes_categories(
+CREATE TABLE links(
 id SERIAL4 PRIMARY KEY,
 recipe_id INTEGER,
 category_id INTEGER
@@ -48,7 +48,7 @@ CREATE TABLE categories (
 
 INSERT INTO categories (category_name) VALUES ('
 
-
+INSERT INTO links (recipe_id, category_id) VALUES ('1', '2');
 
 
 

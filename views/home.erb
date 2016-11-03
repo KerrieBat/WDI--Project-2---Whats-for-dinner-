@@ -3,19 +3,20 @@
 <h2>Hello <%= current_user.username %></h2>
 <% end %>
 <section>
-  <form  action="/recipe/get" method="get">
-    <button>Get Dinner Idea</button>
-  </form>
+  <a  href="/recipe/get" >
+    <button id="first">Get Dinner Idea</button>
+  </a>
 
-  <form  action="/recipe/add" method="post">
-    <button>Add in my favourite recipe</button>
-  </form>
+  <a  href="/recipe/add">
+    <button id = "first">Add in my favourite recipe</button>
+  </a>
 
-  <form  action="/recipe/plan" method="get">
-    <button>Plan a weeks dinners</button>
-  </form>
+  <a  href="/recipe/plan" >
+    <button id = "first">Plan a weeks dinners</button>
+  </a>
 </section>
-  <p>  Latest recipe uploaded   </p>
+  <p>  Latest recipe uploaded.... from <%= @username.username %></p>
   <!--put details from @latest here  -->
-  <img src="" alt="Last recipe" />
+<!-- <img src="smiley.gif" alt="Smiley face" height="42" width="42"> -->
+  <img src="<%= @latest.recipe %>" alt="images/pasta-1463918_1280.jpg" >
   <!--insert last image uploaded and corresponding username and recipe name and description can see it here-->

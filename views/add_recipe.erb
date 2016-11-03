@@ -1,8 +1,8 @@
-<form class="" action="/" method="get">
+<form class="inline" action="/" method="get">
   <button > HOME </button>
 </form><br>
 
-<h1>Add in my favourite recipe</h1>
+<h2 id= "sub">Add in my favourite recipe</h2>
 <br>
 
 <p>
@@ -11,7 +11,8 @@
 <!-- <form class="" action="/" method="get"> -->
   OK <%= current_user.username %>, upload a photo of your recipe (make sure it's readable)
   <input type="file" name="recipe_img" >
-
+  You can upload a photo of the dish (optional) 
+  <input type="file" name="recipe_photo" >
 <!--need to browse and upload photos  -->
 <!-- </form> -->
 
@@ -22,8 +23,7 @@
   <label for="">Description</label>
   <textarea name="description" id= "" rows="4" cols="40"></textarea>
 
-  <p> You can upload a photo of the dish (optional) </p>
-  <input type="file" name="recipe_photo" >
+
 
   <h2>Select the categories that apply</h2>
 
@@ -33,26 +33,26 @@
 
   <label><input class= "check" type="checkbox" name= "cold" id="cbox3" value="cold"> Cold</label><br>
 
-  <label><input class= "check" type="checkbox" name= "raw" id="cbox4" value="nocook"> No cook</label>
+  <label><input class= "check" type="checkbox" name= "no_cook" id="cbox4" value="nocook"> No cook</label>
 
   <label><input class= "check" type="checkbox" name= "spicy" id="cbox5" value="spicy"> Spicy</label><br>
 
-  <label><input class= "check" type="checkbox" name= "quick" id="cbox6" value="readysoon"> Ready in less than 30 mins</label>
+  <label><input class= "check" type="checkbox" name= "less_than_30" id="cbox6" value="readysoon"> Ready in less than 30 mins</label>
 
-  <label><input class= "check" type="checkbox" name= "impress" id="cbox7" value="impress"> Will impress</label>
+  <label><input class= "check" type="checkbox" name= "will_impress" id="cbox7" value="impress"> Will impress</label>
 
-  <label><input class= "check" type="checkbox" name= "kids" id="cbox8" value="kid"> Kid friendly</label><br>
+  <label><input class= "check" type="checkbox" name= "kid_friendly" id="cbox8" value="kid"> Kid friendly</label><br>
 
-  <label><input class= "check" type="checkbox"  name= "veggie" id="cbox9" value="vegetarian"> Vegetarian</label>
+  <label><input class= "check" type="checkbox"  name= "vegetarian" id="cbox9" value="vegetarian"> Vegetarian</label>
 
-  <label><input class= "check" type="checkbox"  name= "gluten" id="cbox10" value="gluten"> Gluten free</label>
+  <label><input class= "check" type="checkbox"  name= "gluten_free" id="cbox10" value="gluten"> Gluten free</label>
 
-  <label><input class= "check" type="checkbox" name= "dairy" id="cbox11" value="dairy"> Dairy free</label>
+  <label><input class= "check" type="checkbox" name= "dairy_free" id="cbox11" value="dairy"> Dairy free</label>
 
-  <label><input class= "check" type="checkbox"  name= "nightshade" id="cbox12" value="nightshade"> Nightshade free</label><br><br><br><br>
+  <label><input class= "check" type="checkbox"  name= "nightshade_free" id="cbox12" value="nightshade"> Nightshade free</label>
 
   <br>
     <button > SUBMIT </button>
-  <br>
+
 
   </form>

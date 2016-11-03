@@ -3,8 +3,50 @@
   <button > HOME </button>
 </form>
 
-<!-- search by categories or search by recipe name -->
 
+<!-- if searching by recipe name, use recipe like '% params %' (% is a wildcard)-->
+
+<form  action="/recipe" method="post">
+  <h2>Search by name or category</h2>
+<h2>By name</h2>
+  <label for="">Type description here</label>
+  <input type="text" name="recipe_search" >
+
+
+<!-- search by categories or search by recipe name -->
+<h2>By category</h2>
+
+<h2>What sort of dinner do you fancy? Select the categories that apply</h2>
+
+<label><input class= "check" type="checkbox" name= "healthy" id="cbox1" value="healthy"> Healthy</label><br>
+
+<label><input class= "check" type="checkbox" name= "hot" id="cbox2" value="hot"> Hot</label>
+
+<label><input class= "check" type="checkbox" name= "cold" id="cbox3" value="cold"> Cold</label><br>
+
+<label><input class= "check" type="checkbox" name= "no_cook" id="cbox4" value="nocook"> No cook</label>
+
+<label><input class= "check" type="checkbox" name= "spicy" id="cbox5" value="spicy"> Spicy</label><br>
+
+<label><input class= "check" type="checkbox" name= "less_than_30" id="cbox6" value="readysoon"> Ready in less than 30 mins</label>
+
+<label><input class= "check" type="checkbox" name= "will_impress" id="cbox7" value="impress"> Will impress</label>
+
+<label><input class= "check" type="checkbox" name= "kid_friendly" id="cbox8" value="kid"> Kid friendly</label><br>
+
+<label><input class= "check" type="checkbox"  name= "vegetarian" id="cbox9" value="vegetarian"> Vegetarian</label>
+
+<label><input class= "check" type="checkbox"  name= "gluten_free" id="cbox10" value="gluten"> Gluten free</label>
+
+<label><input class= "check" type="checkbox" name= "dairy_free" id="cbox11" value="dairy"> Dairy free</label>
+
+<label><input class= "check" type="checkbox"  name= "nightshade_free" id="cbox12" value="nightshade"> Nightshade free</label>
+
+<br>
+  <button > SUBMIT </button>
+
+
+</form>
 
 
 <!-- if searching by recipe name, use recipe like '% params %' (% is a wildcard)-->
