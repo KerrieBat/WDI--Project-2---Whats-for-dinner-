@@ -1,6 +1,8 @@
 
-# good food hunting
 require 'pry'
+require 'carrierwave'
+require 'carrierwave/orm/activerecord'
+require 'fog'
 require 'sinatra'
 require 'sinatra/reloader'
 require_relative 'db_config'
@@ -23,15 +25,13 @@ helpers do
 end
 
 get '/' do
-
-"hello world"
-# get latest entry from recipes table
-@latest = Recipe.last
-@username = User.find_by(id: @latest.user_id)
+  # get latest entry from recipes table
+  @latest = Recipe.last
+  @username = User.find_by(id: @latest.user_id)
   erb :home
 end
 
-# if click on 'get dinner idea'
+  # if click on 'get dinner idea'
 get '/recipe/get' do
 
   redirect to '/session/new' if !logged_in?
@@ -39,10 +39,70 @@ get '/recipe/get' do
   erb :get_dinner
 end
 
+get '/recipe/options' do
+  # search for options from inputs
+  # if search by name
+  if params[:recipe_search]
+
+    @recipes = Recipe.where("recipe_name like ?", "%#{params[:recipe_search]}%")
+
+  elsif params[:category]
+    # search for recipes which meet requirements.
+
+    # # Recipe.run_sql
+# first get all the selected checkboxes and set to a variable to use in the sql statement
+    if params.include?('hot')
+      hotid = Category.find_by(category_name: 'hot').id
+    end
+    if params.include?('healthy')
+      healthyid = Category.find_by(category_name: 'healthy').id
+    end
+    if params.include?('cold')
+      coldid = Category.find_by(category_name: 'cold').id
+    end
+    if params.include?('vegetarian')
+      vegetarianid = Category.find_by(category_name: 'vegetarian').id
+    end
+    if params.include?('no_cook')
+      rawid = Category.find_by(category_name: 'no_cook').id
+    end
+    if params.include?('gluten_free')
+      glutenid = Category.find_by(category_name: 'gluten_free').id
+    end
+    if params.include?('dairy_free')
+      dairyid = Category.find_by(category_name: 'dairy_free').id
+    end
+    if params.include?('nightshade_free')
+      shadeid = Category.find_by(category_name: 'nightshade_free').id
+    end
+    if params.include?('spicy')
+      spicyid = Category.find_by(category_name: 'spicy').id
+    end
+    if params.include?('kid_friendly')
+      kidid = Category.find_by(category_name: 'kid_friendly').id
+    end
+    if params.include?('will_impress')
+      impressid = Category.find_by(category_name: 'will_impress').id
+    end
+    if params.include?('less_than_30')
+      quickid = Category.find_by(category_name: 'less_than_30').id
+    end
+
+    @recipe = Recipe.run_sql("SELECT recipes.recipe_name, links.category_id FROM recipes JOIN links ON recipes.id = links.recipe_id JOIN categories ON categories.id = links.category_id WHERE links.category_id = hotid OR links.category_id = coldid OR links.category_id = rawid OR links.category_id = quickid OR links.category_id = vegetarianid OR links.category_id = kidid OR links.category_id = spicyid OR links.category_id = shadeid OR links.category_id = dairyid OR links.category_id = glutenid OR links.category_id = impressid OR links.category_id = healthyid;")
+
+
+  else
+    @recipes = Recipe.all
+  end
+
+  erb :dinner_options
+end
+
 # display the recipe
-get '/recipe' do
-@username =
-@recipe =
+get '/get_recipe' do
+# binding.pry
+  @recipe = Recipe.find_by(recipe_name: params[:recipe_name])
+  @username = User.find_by(id: @recipe.user_id)
   erb :recipe
 end
 
@@ -111,81 +171,9 @@ post '/recipe' do
     new_dinner.categories << category
   end
 
-
-
-
-
-  # ['hot', 'dessert',]
-  # Category.all.each do |category|
-  #   #the code here is called once for each user
-  #   # user is accessible by 'user' variable
-  #   # new_link = Link.new
-  #   # if params[:category] != nil
-  #   #   new_link.recipe_id = new_dinner.id
-  #   #   new_link.category_id = category.category_id
-  #   #   # new_link.vegetarian = true
-  #   #   new_link.save
-  #   # end
-  #   # binding.pry
-  # end
-  # if params[:hot] == nil
-  #   new_dinner.hot = false
-  # else
-  #   new_dinner.hot = true
-  # end
-  # if params[:cold] == nil
-  #   new_dinner.cold = false
-  # else
-  #   new_dinner.cold = true
-  # end
-  # if params[:healthy] == nil
-  #   new_dinner.healthy = false
-  # else
-  #   new_dinner.healthy = true
-  # end
-  # if params[:raw] == nil
-  #   new_dinner.no_cook = false
-  # else
-  #   new_dinner.no_cook = true
-  # end
-  # if params[:gluten] == nil
-  #   new_dinner.gluten_free = false
-  # else
-  #   new_dinner.gluten_free = true
-  # end
-  # if params[:nightshade] == nil
-  #   new_dinner.nightshade_free = false
-  # else
-  #   new_dinner.nightshade_free = true
-  # end
-  # if params[:dairy] == nil
-  #   new_dinner.dairy_free = false
-  # else
-  #   new_dinner.dairy_free = true
-  # end
-  # if params[:spicy] == nil
-  #   new_dinner.spicy = false
-  # else
-  #   new_dinner.spicy = true
-  # end
-  # if params[:kids] == nil
-  #   new_dinner.kid_friendly = false
-  # else
-  #   new_dinner.kid_friendly = true
-  # end
-  # if params[:impress] == nil
-  #   new_dinner.will_impress = false
-  # else
-  #   new_dinner.will_impress = true
-  # end
-  # if params[:quick] == nil
-  #   new_dinner.less_than_30 = false
-  # else
-  #   new_dinner.less_than_30 = true
-  # end
-
   new_dinner.save
-redirect to '/'
+
+  redirect to '/'
 end
 
 get '/recipe/plan' do
@@ -194,89 +182,7 @@ get '/recipe/plan' do
   erb :plan_week
 end
 
-  #
-# get '/dishes/new' do
-#   redirect to '/session/new' if !logged_in?
-#   # show the form only
-#   @dishtype = Dishtype.all
-#   erb :dishes_new
-# end
-#
-# post '/dishes' do
-#   redirect to '/session/new' if !logged_in?
-#   # create the dish
-#   # Dish.create(name: params[:name], image_url: params[:image_url])
-#   # or can do
-#   dish = Dish.new
-#   dish.name = params[:name]
-#   dish.image_url = params[:image_url]
-#   dish.dishtype_id = params[:dishtype_id]
-#
-#   if dish.save
-#     redirect to '/'
-#   else
-#     erb :dishes_new
-#   # lays it out better and can specify or change entries easier
-#
-#
-#     redirect to '/'
-#   end
-# end
-#
-# post '/comments' do
-#   comment = Comment.new
-# # binding.pry
-#   comment.body = params[:body]
-#
-#   comment.dish_id = params[:dish_id]
-#
-#   comment.save
-#   redirect to "/dishes/#{comment.dish_id}"
-# end
-#
-# post '/dishtype' do
-#   dishtype = Dishtype.new
-#   #select from a pull down list
-# end
-#
-# get '/dishes/:id' do
-#   # show single dish
-#   @dish = Dish.find_by(id: params[:id])
-#   # or can say if belongs_to is in comment.rb
-#   # @comments = @dish.comment
-#   @comments = Comment.where(dish_id: @dish.id)
-#   @dishtype = Dishtype.where(id: @dish.dishtype_id)
-# # or @dish = Dish.find(params[:id])  ----find finds record on id automatically, find_by if want to find on another record
-#   erb :dishes_show
-# end
-#
-# show the edit dish form
-# get '/dishes/:id/edit' do
-#   @dish = Dish.find_by(id: params[:id])
-#   @dishtype = Dishtype.where(id: @dish.dishtype_id)
-#   @dishtype_list =Dishtype.all
-#   # @dishtype = @dish.dishtype
-#
-#   erb :dishes_edit
-# end
 
-# # updating an existing dish
-# post '/dishes/:id' do
-#   dish = Dish.find_by(id: params[:id])
-#   dish.update (name: params[:name], image_url: params[:image_url], dishtype_id: params[:dishtype_id])
-#
-#   redirect to "/dishes/#{ params[:id]}"
-# end
-
-# # delete an existing dish
-# post '/dishes/:id/delete' do
-#   dish = Dish.find_by(id: params[:id])
-#   dish.destroy
-#
-#   redirect to '/'
-# end
-#
-# sign in to new session
 get '/session/new' do
   erb :session_new
 end
@@ -319,69 +225,3 @@ delete '/session' do
   end
   redirect to '/session/new'
 end
-
-
-
-
-
-
-
-
-
-
-#
-# get '/search' do
-#   movie = params[:movie_name]
-#   multiresult = HTTParty.get("http://omdbapi.com/?s=#{movie}")
-#   @movies = multiresult["Search"]
-#   erb :options
-# end
-#
-# get '/get_movie' do
-#     movie = params[:movie_name]
-#     # if movie selected is already in the localmovies database, then pull data from database,  otherwise get it from the API
-#   if Movie.find_by(title: movie)
-#     # yes its in the database, get data from there
-#     movie_from_store = Movie.find_by(title: movie)
-#     @movie_title = movie_from_store.title
-#     @movie_plot = movie_from_store.plot
-#     @movie_poster = movie_from_store.poster
-#     @movie_year = movie_from_store.year
-#     @rating = movie_from_store.rating
-#     @cast = movie_from_store.actors
-#     @director = movie_from_store.director
-#   else
-#     # no its not in the database, get it from API then store in database
-#     result = HTTParty.get("http://omdbapi.com/?t=#{movie}")
-# # binding.pry
-#     if result["Response"] == "False"
-#       @error = result["Error"]
-#       # use page error showing error message
-#       erb :error
-#     else
-#       # use std page
-#       @movie_title = result["Title"]
-#       @movie_plot = result["Plot"]
-#       @movie_poster = result["Poster"]
-#       @movie_year = result["Year"]
-#       @rating = result["Rated"]
-#       @cast = result["Actors"]
-#       @director = result["Director"]
-#
-# # store results in local movies database
-#
-#       movie_to_store = Movie.new
-#       movie_to_store.title = @movie_title
-#       movie_to_store.plot = @movie_plot
-#       movie_to_store.poster = @movie_poster
-#       movie_to_store.year = @movie_year
-#       movie_to_store.rating = @rating
-#       movie_to_store.director = @director
-#       movie_to_store.actors = @cast
-#
-#       movie_to_store.save
-#
-#     end
-#   end
-#   erb :index
-# end

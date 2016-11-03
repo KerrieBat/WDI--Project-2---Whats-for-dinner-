@@ -1,15 +1,16 @@
-<h1>The following recipes match your selections, pick one to display</h1>
+<form class="inline" action="/" method="get">
+  <button > HOME </button>
+</form><br>
+
+<h2>The following recipes match your selections, pick one to display</h2>
 
 <p id='options'>
-    <h1>Dinners:</h1><br>
+    <h2>Dinners:</h2>
 
-    <% @dinners.each do |dinner| %>
+    <% @recipes.each do |dinner| %>
       <div>
         <h2>
-          <!--get recipe name and description  -->
-          <%= '<a href="/get_movie?movie_name=' + dinner['Title'] + '" >'%>
-            <%= dinner['name'] %>
-          </a>
+          <a href="/get_recipe?recipe_name=<%= dinner.recipe_name %>"><%= dinner.recipe_name %></a>
         </h2>
       </div>
     <% end %>

@@ -9,14 +9,17 @@
   Every family has favourite recipes, these are by definition tasty and easy to make, otherwise you wouldn't make them so often! Just take a photo of the recipe.
 </p>
 <!-- <form class="" action="/" method="get"> -->
-  OK <%= current_user.username %>, upload a photo of your recipe (make sure it's readable)
-  <input type="file" name="recipe_img" >
-  You can upload a photo of the dish (optional) 
-  <input type="file" name="recipe_photo" >
-<!--need to browse and upload photos  -->
-<!-- </form> -->
 
-<form  action="/recipe" method="post">
+<form  action="/recipe" method="post" enctype="multipart/form-data">
+  OK <%= current_user.username %>, upload a photo of your recipe (make sure it's readable)
+    <input type="file" name="recipe" /><br>
+    You can upload a photo of the dish (optional)
+    <input type="file" name="photo" /><br>
+
+
+<!--need to browse and upload photos  -->
+
+
   <label for="">Recipe name</label>
   <input type="text" name="recipe_name" >
 

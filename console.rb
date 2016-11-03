@@ -1,5 +1,7 @@
 
 require 'pry'
+require 'carrierwave'
+require 'carrierwave/orm/activerecord'
 require 'active_record'
 require_relative 'db_config'
 require_relative 'models/recipe'

@@ -9,7 +9,7 @@ CREATE TABLE recipes (
   recipe TEXT,
   photo TEXT,
   votes INTEGER
-);
+  );
 
 CREATE TABLE users (
   id SERIAL4 PRIMARY KEY,
@@ -54,3 +54,39 @@ INSERT INTO links (recipe_id, category_id) VALUES ('1', '2');
 
   -- INSERT INTO users (email, username, password_digest)
   -- VALUES ('batrouney@gmail.com', 'kerriebat', 'Ruby123');
+
+-- this works to get the list of recipe names but there are duplicates of the recipe name when more than one category is true.
+
+SELECT recipes.recipe_name, links.category_id
+FROM recipes
+JOIN links ON recipes.id = links.recipe_id
+JOIN categories ON categories.id = links.category_id
+WHERE links.category_id = hotid
+OR links.category_id = coldid
+OR links.category_id = rawid
+OR links.category_id = quickid
+OR links.category_id = vegetarianid
+OR links.category_id = kidid
+OR links.category_id = spicyid
+OR links.category_id = shadeid
+OR links.category_id = dairyid
+OR links.category_id = glutenid
+OR links.category_id = impressid
+OR links.category_id = healthyid;
+
+
+
+
+
+
+
+
+
+
+
+
+
+SELECT recipes.recipe_name, links.category_id
+FROM recipes
+JOIN links ON recipes.id = links.recipe_id
+JOIN categories ON categories.id = links.category_id;

@@ -10,21 +10,47 @@ body {
   margin-left: 10%;
   margin-right: 10%;
 }
-header{
-  background-image: url("images/cropped-cutlery.jpg");
+div.background {
+  background: url("images/cropped-cutlery.jpg") ;
+  opacity: 1;
+  border: 2px solid black;
   background-size: contain;
 }
-h1 {
+
+div.transbox {
+  margin: 30px;
+  background-color: #ffffff;
+
+  opacity: 0.8;
+}
+
+div.transbox p {
+  margin: 5%;
+  font-weight: bold;
+  color: #000000;
+  vertical-align: top;
+  font-size: 70px;
+  text-align: center;
+  margin: 0;
+
+}
+/*header{
+  background-image: url("images/cropped-cutlery.jpg");
+
+  opacity: 0.5;
+  background-size: contain;
+}*/
+/*h1 {
   /*display: inline-block;*/
   vertical-align: top;
-  font-size: 60px;
+  font-size: 70px;
   text-align: center;
   margin: 0;
   padding: 1%;
-  color: darkred;
-  text-shadow: 2px 2px oldlace;
+  color: indigo;
+  text-shadow: 2px 2px black;
 
-}
+}*/
 section {
   display: flex;
   justify-content: space-between;
@@ -97,18 +123,11 @@ p {
   background-image: -o-linear-gradient(top, #636365, #755043);
   background-image: linear-gradient(to bottom, #636365, #755043);
 }
+*/
 
 input {
-  background: #755043;
-  background-image: -webkit-linear-gradient(top, #755043, #636365);
-  background-image: -moz-linear-gradient(top, #755043, #636365);
-  background-image: -ms-linear-gradient(top, #755043, #636365);
-  background-image: -o-linear-gradient(top, #755043, #636365);
-  background-image: linear-gradient(to bottom, #755043, #636365);
-  -webkit-border-radius: 10;
-  -moz-border-radius: 10;
-  border-radius: 10px;
-  width: 300px;
-  font-size: 20px;
-  padding: 10px ;
-}*/
+  opacity: 0.8;
+}
+textarea{
+  opacity: 0.8;
+}

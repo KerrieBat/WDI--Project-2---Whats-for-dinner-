@@ -16,7 +16,4 @@
   </a>
 </section>
   <p>  Latest recipe uploaded.... from <%= @username.username %></p>
-  <!--put details from @latest here  -->
-<!-- <img src="smiley.gif" alt="Smiley face" height="42" width="42"> -->
-  <img src="<%= @latest.recipe %>" alt="images/pasta-1463918_1280.jpg" >
-  <!--insert last image uploaded and corresponding username and recipe name and description can see it here-->
+<img src="<%= @latest.recipe.url %>" alt="images/pasta-1463918_1280.jpg" height="200" width="150" >
