@@ -50,7 +50,7 @@ INSERT INTO categories (category_name) VALUES ('
 
 INSERT INTO links (recipe_id, category_id) VALUES ('1', '2');
 
-
+INSERT into recipes (recipe_name, user_id) values ('dal', '1');
 
   -- INSERT INTO users (email, username, password_digest)
   -- VALUES ('batrouney@gmail.com', 'kerriebat', 'Ruby123');
@@ -75,7 +75,7 @@ OR links.category_id = impressid
 OR links.category_id = healthyid;
 
 
-
+SELECT recipes.recipe_name, links.category_id FROM recipes JOIN links ON recipes.id = links.recipe_id JOIN categories ON categories.id = links.category_id WHERE links.category_id IN (#{hotid}, #{coldid}, #{spicyid});
 
 
 

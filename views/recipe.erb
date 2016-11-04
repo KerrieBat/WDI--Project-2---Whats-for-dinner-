@@ -5,13 +5,9 @@
 
 <section>
   <p id = "recipe">
-      <img src="<%= @recipe.recipe.url %>" alt="Space for photo" /><br><br>
-      Votes : <%= @recipe.votes %>
+      <img src="<%= @recipe.recipe.url %>" alt="Space for photo" />
+      <img src="<%= @recipe.photo.url %>" alt="Space for photo" />
+
   </p>
-  posted by <%= @username.username %>
-</section>
-
-<aside class="post">
-  <img src="<%= @recipe.photo.url %>" alt="Space for photo" />
-
-</aside>
+  posted by <%= @username.username %><br>
+  Votes : <%= @recipe.votes %>

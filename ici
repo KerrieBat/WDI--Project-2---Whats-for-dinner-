@@ -1,0 +1,80 @@
+=> [32m#<ActiveRecord::Result:0x0000000237e360[0m
+ @column_types[32m=[0m
+  {[31m[1;31m"[0m[31mid[1;31m"[0m[31m[0m=>
+    [32m#<ActiveModel::Type::Integer:0x000000023f0668[0m
+     @limit[32m=[0m[1;36mnil[0m,
+     @precision[32m=[0m[1;36mnil[0m,
+     @range[32m=[0m[1;34m-2147483648[0m...[1;34m2147483648[0m,
+     @scale[32m=[0m[1;36mnil[0m[32m>[0m,
+   [31m[1;31m"[0m[31mrecipe_name[1;31m"[0m[31m[0m=>
+    [32m#<ActiveModel::Type::String:0x000000023f18b0[0m
+     @limit[32m=[0m[1;36mnil[0m,
+     @precision[32m=[0m[1;36mnil[0m,
+     @scale[32m=[0m[1;36mnil[0m[32m>[0m,
+   [31m[1;31m"[0m[31mdescription[1;31m"[0m[31m[0m=>
+    [32m#<ActiveModel::Type::Text:0x000000033f37b8[0m
+     @limit[32m=[0m[1;36mnil[0m,
+     @precision[32m=[0m[1;36mnil[0m,
+     @scale[32m=[0m[1;36mnil[0m[32m>[0m,
+   [31m[1;31m"[0m[31muser_id[1;31m"[0m[31m[0m=>
+    [32m#<ActiveModel::Type::Integer:0x000000023f0668[0m
+     @limit[32m=[0m[1;36mnil[0m,
+     @precision[32m=[0m[1;36mnil[0m,
+     @range[32m=[0m[1;34m-2147483648[0m...[1;34m2147483648[0m,
+     @scale[32m=[0m[1;36mnil[0m[32m>[0m,
+   [31m[1;31m"[0m[31mrecipe[1;31m"[0m[31m[0m=>
+    [32m#<ActiveModel::Type::Text:0x000000033f37b8[0m
+     @limit[32m=[0m[1;36mnil[0m,
+     @precision[32m=[0m[1;36mnil[0m,
+     @scale[32m=[0m[1;36mnil[0m[32m>[0m,
+   [31m[1;31m"[0m[31mphoto[1;31m"[0m[31m[0m=>
+    [32m#<ActiveModel::Type::Text:0x000000033f37b8[0m
+     @limit[32m=[0m[1;36mnil[0m,
+     @precision[32m=[0m[1;36mnil[0m,
+     @scale[32m=[0m[1;36mnil[0m[32m>[0m,
+   [31m[1;31m"[0m[31mvotes[1;31m"[0m[31m[0m=>
+    [32m#<ActiveModel::Type::Integer:0x000000023f0668[0m
+     @limit[32m=[0m[1;36mnil[0m,
+     @precision[32m=[0m[1;36mnil[0m,
+     @range[32m=[0m[1;34m-2147483648[0m...[1;34m2147483648[0m,
+     @scale[32m=[0m[1;36mnil[0m[32m>[0m},
+ @columns[32m=[0m
+  [[31m[1;31m"[0m[31mid[1;31m"[0m[31m[0m, [31m[1;31m"[0m[31mrecipe_name[1;31m"[0m[31m[0m, [31m[1;31m"[0m[31mdescription[1;31m"[0m[31m[0m, [31m[1;31m"[0m[31muser_id[1;31m"[0m[31m[0m, [31m[1;31m"[0m[31mrecipe[1;31m"[0m[31m[0m, [31m[1;31m"[0m[31mphoto[1;31m"[0m[31m[0m, [31m[1;31m"[0m[31mvotes[1;31m"[0m[31m[0m],
+ @hash_rows[32m=[0m[1;36mnil[0m,
+ @rows[32m=[0m
+  [[[1;34m15[0m, [31m[1;31m"[0m[31mdal[1;31m"[0m[31m[0m, [1;36mnil[0m, [1;34m1[0m, [1;36mnil[0m, [1;36mnil[0m, [1;36mnil[0m],
+   [[1;34m16[0m,
+    [31m[1;31m"[0m[31mmegadderra[1;31m"[0m[31m[0m,
+    [31m[1;31m"[0m[31measy dish from my lebanese heritage[1;31m"[0m[31m[0m,
+    [1;34m2[0m,
+    [31m[1;31m"[0m[31mDSC_1117.JPG[1;31m"[0m[31m[0m,
+    [31m[1;31m"[0m[31mDSC_1116.JPG[1;31m"[0m[31m[0m,
+    [1;36mnil[0m],
+   [[1;34m17[0m,
+    [31m[1;31m"[0m[31mNut loaf, crunchy[1;31m"[0m[31m[0m,
+    [31m[1;31m"[0m[31mOne of my many nut loaf recipes[1;31m"[0m[31m[0m,
+    [1;34m2[0m,
+    [31m[1;31m"[0m[31mDSC_1113.JPG[1;31m"[0m[31m[0m,
+    [31m[1;31m"[0m[31mpasta-1463918_1280.jpg[1;31m"[0m[31m[0m,
+    [1;36mnil[0m],
+   [[1;34m18[0m,
+    [31m[1;31m"[0m[31msourdough bread[1;31m"[0m[31m[0m,
+    [31m[1;31m"[0m[31mreally crusty![1;31m"[0m[31m[0m,
+    [1;34m1[0m,
+    [31m[1;31m"[0m[31mrustic_homemade_sourdough.docx[1;31m"[0m[31m[0m,
+    [31m[1;31m"[0m[31mIMG_2786.JPG[1;31m"[0m[31m[0m,
+    [1;36mnil[0m],
+   [[1;34m19[0m,
+    [31m[1;31m"[0m[31mtuna cottage pie[1;31m"[0m[31m[0m,
+    [31m[1;31m"[0m[31mwith a photo of broccoli soup[1;31m"[0m[31m[0m,
+    [1;34m1[0m,
+    [31m[1;31m"[0m[31mTuna-Cottage-Pie-L14112.pdf[1;31m"[0m[31m[0m,
+    [31m[1;31m"[0m[31mbroccoli_soup.JPG[1;31m"[0m[31m[0m,
+    [1;36mnil[0m],
+   [[1;34m20[0m,
+    [31m[1;31m"[0m[31mcarrot kofta with lentil sauce[1;31m"[0m[31m[0m,
+    [31m[1;31m"[0m[31msauce is the best dahl ever[1;31m"[0m[31m[0m,
+    [1;34m1[0m,
+    [31m[1;31m"[0m[31mDSC_1101.JPG[1;31m"[0m[31m[0m,
+    [31m[1;31m"[0m[31mdhal.JPG[1;31m"[0m[31m[0m,
+    [1;36mnil[0m]][32m>[0m

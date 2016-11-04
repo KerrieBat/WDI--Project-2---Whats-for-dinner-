@@ -22,8 +22,20 @@ helpers do
   def current_user
     User.find_by(id: session[:user_id])
   end
-end
 
+  def execute_statement(sql)
+    results = ActiveRecord::Base.connection.exec_query(sql)
+
+        # results = ActiveRecord::Base.connection.execute(sql)
+        if results.present?
+            return results
+        else
+            return nil
+        end
+    end
+
+end
+#
 get '/' do
   # get latest entry from recipes table
   @latest = Recipe.last
@@ -87,8 +99,9 @@ get '/recipe/options' do
     if params.include?('less_than_30')
       quickid = Category.find_by(category_name: 'less_than_30').id
     end
+@recipe = execute_statement("SELECT recipes.recipe_name, links.category_id FROM recipes JOIN links ON recipes.id = links.recipe_id JOIN categories ON categories.id = links.category_id WHERE links.category_id IN (#{hotid}, #{coldid}, #{spicyid})")
 
-    @recipe = Recipe.run_sql("SELECT recipes.recipe_name, links.category_id FROM recipes JOIN links ON recipes.id = links.recipe_id JOIN categories ON categories.id = links.category_id WHERE links.category_id = hotid OR links.category_id = coldid OR links.category_id = rawid OR links.category_id = quickid OR links.category_id = vegetarianid OR links.category_id = kidid OR links.category_id = spicyid OR links.category_id = shadeid OR links.category_id = dairyid OR links.category_id = glutenid OR links.category_id = impressid OR links.category_id = healthyid;")
+    # @recipe = Recipe.run_sql("SELECT recipes.recipe_name, links.category_id FROM recipes JOIN links ON recipes.id = links.recipe_id JOIN categories ON categories.id = links.category_id WHERE links.category_id = #{hotid} OR links.category_id = coldid OR links.category_id = rawid OR links.category_id = quickid OR links.category_id = vegetarianid OR links.category_id = kidid OR links.category_id = spicyid OR links.category_id = shadeid OR links.category_id = dairyid OR links.category_id = glutenid OR links.category_id = impressid OR links.category_id = healthyid;")
 
 
   else
