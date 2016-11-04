@@ -46,7 +46,7 @@ CREATE TABLE categories (
 );
 
 
-INSERT INTO categories (category_name) VALUES ('
+INSERT INTO categories (category_name) VALUES ('hot');
 
 INSERT INTO links (recipe_id, category_id) VALUES ('1', '2');
 
@@ -90,3 +90,17 @@ SELECT recipes.recipe_name, links.category_id
 FROM recipes
 JOIN links ON recipes.id = links.recipe_id
 JOIN categories ON categories.id = links.category_id;
+
+
+INSERT INTO categories (category_name) VALUES ('hot');
+INSERT INTO categories (category_name) VALUES ('cold');
+INSERT INTO categories (category_name) VALUES ('vegetarian');
+INSERT INTO categories (category_name) VALUES ('spicy');
+INSERT INTO categories (category_name) VALUES ('less_than_30');
+INSERT INTO categories (category_name) VALUES ('kid_friendly');
+INSERT INTO categories (category_name) VALUES ('healthy');
+INSERT INTO categories (category_name) VALUES ('gluten_free');
+INSERT INTO categories (category_name) VALUES ('dairy_free');
+INSERT INTO categories (category_name) VALUES ('nightshade_free');
+INSERT INTO categories (category_name) VALUES ('no_cook');
+INSERT INTO categories (category_name) VALUES ('will_impress');

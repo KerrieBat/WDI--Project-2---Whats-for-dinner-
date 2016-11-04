@@ -1,3 +1,7 @@
+<% if logged_in? %>
+<h2>Hello <%current_user.username %></h2>
+
+<% else %>
 
   <form class="inline" action="/session/signup" method="get">
     <button >SIGN UP</button>
@@ -5,6 +9,7 @@
   <form class="inline" action="/session/new" method="get">
     <button >LOGIN</button>
   </form>
+<% end%>
 
 <section>
   <a  href="/recipe/get" >
@@ -19,3 +24,5 @@
     <button id = "first">Plan a weeks dinners</button>
   </a>
 </section>
+  <p>  Latest recipe uploaded.... from <%= @username.username %></p>
+<img src="<%= @latest.recipe.url %>" alt="images/pasta-1463918_1280.jpg" />
