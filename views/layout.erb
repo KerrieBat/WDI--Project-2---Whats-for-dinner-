@@ -16,14 +16,13 @@
       <p>What's for dinner?</p>
     </div>
   </div>
-  <h3>  <% #if logged_in? %> logged in as KEL</h3>
-<%= #current_user.username %>
+
     <form class="inline" action="/session" method="post">
       <input type="hidden" name="_method" value="delete">
       <button >LOGOUT</button>
     </form>
 
-    <% #end %>
+
     <%= yield %>
 
     <footer>designed by kb </footer>

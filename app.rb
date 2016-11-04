@@ -37,11 +37,7 @@ helpers do
 end
 #
 get '/' do
-  if Recipe.last
-    # get latest entry from recipes table
-    @latest = Recipe.last
-    @username = User.find_by(id: @latest.user_id)
-  end
+  
   erb :home
 end
 
