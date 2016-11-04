@@ -52,8 +52,8 @@ INSERT INTO links (recipe_id, category_id) VALUES ('1', '2');
 
 INSERT into recipes (recipe_name, user_id) values ('dal', '1');
 
-  -- INSERT INTO users (email, username, password_digest)
-  -- VALUES ('batrouney@gmail.com', 'kerriebat', 'Ruby123');
+  INSERT INTO users (email, username, password_digest)
+  VALUES ('batrouney@gmail.com', 'kerriebat', 'Ruby123');
 
 -- this works to get the list of recipe names but there are duplicates of the recipe name when more than one category is true.
 
