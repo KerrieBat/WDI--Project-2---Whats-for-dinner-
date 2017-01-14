@@ -1,0 +1,27 @@
+                                           List of databases
+            Name             |   Owner   | Encoding |   Collate   |    Ctype    |   Access privileges   
+-----------------------------+-----------+----------+-------------+-------------+-----------------------
+ bird_attack_development     | kerriebat | UTF8     | en_AU.UTF-8 | en_AU.UTF-8 | 
+ bird_attack_test            | kerriebat | UTF8     | en_AU.UTF-8 | en_AU.UTF-8 | 
+ cats_development            | kerriebat | UTF8     | en_AU.UTF-8 | en_AU.UTF-8 | 
+ cats_test                   | kerriebat | UTF8     | en_AU.UTF-8 | en_AU.UTF-8 | 
+ dinners                     | kerriebat | UTF8     | en_AU.UTF-8 | en_AU.UTF-8 | 
+ goodfoodhunting             | kerriebat | UTF8     | en_AU.UTF-8 | en_AU.UTF-8 | 
+ goodfoodhunting_development | kerriebat | UTF8     | en_AU.UTF-8 | en_AU.UTF-8 | 
+ goodfoodhunting_test        | kerriebat | UTF8     | en_AU.UTF-8 | en_AU.UTF-8 | 
+ guest_tracker               | kerriebat | UTF8     | en_AU.UTF-8 | en_AU.UTF-8 | 
+ guestbook                   | kerriebat | UTF8     | en_AU.UTF-8 | en_AU.UTF-8 | 
+ kerrie                      | postgres  | UTF8     | en_AU.UTF-8 | en_AU.UTF-8 | 
+ kerriebat                   | postgres  | UTF8     | en_AU.UTF-8 | en_AU.UTF-8 | 
+ localmovies                 | kerriebat | UTF8     | en_AU.UTF-8 | en_AU.UTF-8 | 
+ my_pets                     | postgres  | UTF8     | en_AU.UTF-8 | en_AU.UTF-8 | 
+ planets_development         | kerriebat | UTF8     | en_AU.UTF-8 | en_AU.UTF-8 | 
+ planets_test                | kerriebat | UTF8     | en_AU.UTF-8 | en_AU.UTF-8 | 
+ postgres                    | postgres  | UTF8     | en_AU.UTF-8 | en_AU.UTF-8 | 
+ template0                   | postgres  | UTF8     | en_AU.UTF-8 | en_AU.UTF-8 | =c/postgres          +
+                             |           |          |             |             | postgres=CTc/postgres
+ template1                   | postgres  | UTF8     | en_AU.UTF-8 | en_AU.UTF-8 | =c/postgres          +
+                             |           |          |             |             | postgres=CTc/postgres
+ wdiconf                     | kerriebat | UTF8     | en_AU.UTF-8 | en_AU.UTF-8 | 
+(20 rows)
+

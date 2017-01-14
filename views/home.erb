@@ -2,27 +2,28 @@
 <h2>Hello <%= current_user.username %></h2>
 
 <% else %>
-
-  <form class="inline" action="/session/signup" method="get">
-    <button >SIGN UP</button>
-  </form>
-  <form class="inline" action="/session/new" method="get">
-    <button >LOGIN</button>
-  </form>
+  <div>
+    <form class="inline" action="/session/signup" method="get">
+      <button >SIGN UP / LOGIN </button>
+    </form>
+    <!-- <form class="inline" action="/session/new" method="get">
+      <button >LOGIN</button>
+    </form> -->
+  </div>
 <% end%>
-
+<br>
 <section>
   <a  href="/recipe/get" >
-    <button id="first">Get Dinner Idea</button>
+    <button id="first">GET DINNER IDEA</button>
   </a>
 
   <a  href="/recipe/add">
-    <button id = "first">Add in my favourite recipe</button>
+    <button id = "first">ADD RECIPE</button>
   </a>
 
   <a  href="/recipe/plan" >
-    <button id = "first">Plan a weeks dinners</button>
+    <button id = "first">PLAN DINNERS</button>
   </a>
 </section>
   <p>  Latest recipe uploaded.... from <%= @username.username %></p>
-<img src="<%= @latest.recipe.url %>" alt="images/pasta-1463918_1280.jpg" />
+<img class="pic" src="<%= @latest.recipe.url %>" alt="images/pasta-1463918_1280.jpg" />

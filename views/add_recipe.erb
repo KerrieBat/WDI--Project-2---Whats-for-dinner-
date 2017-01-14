@@ -1,6 +1,4 @@
-<form class="inline" action="/" method="get">
-  <button > HOME </button>
-</form><br>
+<br>
 
 <h2 id= "sub">Add in my favourite recipe</h2>
 <br>
@@ -11,24 +9,25 @@
 <!-- <form class="" action="/" method="get"> -->
 
 <form  action="/recipe" method="post" enctype="multipart/form-data">
-  OK <%= current_user.username %>, upload a photo of your recipe (make sure it's readable)
+  OK <%= current_user.username %>, upload a photo of your recipe
     <input type="file" name="recipe" /><br>
-    You can upload a photo of the dish (optional)
+  Upload a photo of the dish (optional)
     <input type="file" name="photo" /><br>
 
 
 <!--need to browse and upload photos  -->
 
-
+<div>
   <label for="">Recipe name</label>
   <input type="text" name="recipe_name" >
-
+</div>
+<div>
   <label for="">Description</label>
   <textarea name="description" id= "" rows="2" cols="60"></textarea>
+</div>
 
 
-
-  <br><h2>Select the categories that apply</h2>
+  <br><h2>Select categories</h2>
 
   <label><input class= "check" type="checkbox" name= "healthy" id="cbox1" value="healthy"> Healthy</label><br>
 

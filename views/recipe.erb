@@ -1,13 +1,17 @@
 <br>
-<form class="" action="/" method="get">
+<!-- <form class="" action="/" method="get">
   <button > HOME </button>
-</form>
+</form> -->
 
 <section>
   <p id = "recipe">
-      <img src="<%= @recipe.recipe.url %>" alt="Space for photo" />
-      <img src="<%= @recipe.photo.url %>" alt="Space for photo" />
-
-  </p>
+      <img class="pic" src="<%= @recipe.recipe.url %>" alt="Space for photo" />
+      <img class="pic" src="<%= @recipe.photo.url %>" alt="Space for photo" />
+</section>
+<br>
+<section>
   posted by <%= @username.username %><br>
-  Votes : <%= @recipe.votes %>
+  --- <%= @recipe.description %><br>
+
+
+</section>

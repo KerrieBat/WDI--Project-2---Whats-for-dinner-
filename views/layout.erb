@@ -4,29 +4,34 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Caveat+Brush" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet">
-    <link rel="shortcut icon" href="images/beefavicon.ico">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato|Montserrat|Roboto" rel="stylesheet">
+    <link rel="shortcut icon" href="/images/beefavicon.ico">
     <title>WFD?</title>
   </head>
   <body>
 
   <div class="background">
-    <div class="transbox">
-      <p>What's for dinner?</p>
-    </div>
+    <h1 class = "heading">What's for dinner?</h1>
+    <!-- <div class="transbox"> -->
   </div>
-  <h3>  <% if logged_in? %> logged in as <%= current_user.username %></h3>
-
-    <form class="inline" action="/session" method="post">
+  <div class = "inline">
+    <form class="" action="/" method="get">
+      <button > HOME </button>
+    </form>
+    <h3>  <% if logged_in? %> logged in as <%= current_user.username %></h3>
+    <form action="/session" method="post">
       <input type="hidden" name="_method" value="delete">
       <button >LOGOUT</button>
     </form>
-
     <% end %>
+  </div>
+
     <%= yield %>
-
+    <br>
+    <div id="bottomImage" class="container">
+      <!-- <img src="/images/cropped-cutlery.jpg"> -->
+    </div>
     <footer>designed by kb </footer>
-
   </body>
 </html>

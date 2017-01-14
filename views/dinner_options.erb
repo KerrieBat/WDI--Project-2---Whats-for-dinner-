@@ -1,17 +1,21 @@
-<form class="inline" action="/" method="get">
-  <button > HOME </button>
-</form><br>
+<!-- <form class="inline" action="/" method="get"> -->
+  <!-- <button > HOME </button>
+</form>-->
+<br>
 
-<h2>The following recipes match your selections, pick one to display</h2>
+<h3>The following recipes match your selections, pick one to display</h3>
 
 <p id='options'>
     <h2>Dinners:</h2>
 
     <% @recipes.each do |dinner| %>
       <div>
-        <h2>
-          <a href="/get_recipe?recipe_name=<%= dinner.recipe_name %>"><%= dinner.recipe_name %></a>
-        </h2>
+        <h3>
+          <a href="/get_recipe?recipe_name=<%= dinner.recipe_name %>">
+            <%= dinner.recipe_name %>
+          </a>
+          - - -  <%= dinner.description %>
+        </h3>
       </div>
     <% end %>
 
