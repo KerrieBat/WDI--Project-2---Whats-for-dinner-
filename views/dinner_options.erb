@@ -2,20 +2,21 @@
   <!-- <button > HOME </button>
 </form>-->
 <br>
-
-<h3>The following recipes match your selections, pick one to display</h3>
-
 <p id='options'>
     <h2>Dinners:</h2>
 
     <% @recipes.each do |dinner| %>
-      <div>
-        <h3>
-          <a href="/get_recipe?recipe_name=<%= dinner.recipe_name %>">
+      <div class = "row">
+        <div class = "col-5">
+          <h3>
+            <a href="/get_recipe?recipe_name=<%= dinner.recipe_name %>">
             <%= dinner.recipe_name %>
-          </a>
-          - - -  <%= dinner.description %>
-        </h3>
+          </a></h3>
+        </div>
+        <div class = "col-7">
+          <h3>-  <%= dinner.description %>
+          </h3>
+        </div>
       </div>
     <% end %>
 

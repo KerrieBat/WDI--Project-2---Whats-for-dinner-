@@ -1,17 +1,17 @@
 <br>
 
-<h2 id= "sub">Add in my favourite recipe</h2>
+<h2 id= "sub">Add in my recipe</h2>
 <br>
 
-<p>
-  Every family has favourite recipes, these are by definition tasty and easy to make, otherwise you wouldn't make them so often! Just take a photo of the recipe.
+<p class = "latest">
+  Every family has favourite recipes, just take a photo and upload
 </p>
 <!-- <form class="" action="/" method="get"> -->
 
 <form  action="/recipe" method="post" enctype="multipart/form-data">
-  OK <%= current_user.username %>, upload a photo of your recipe
+Upload recipe
     <input type="file" name="recipe" /><br>
-  Upload a photo of the dish (optional)
+  Upload a photo (optional)
     <input type="file" name="photo" /><br>
 
 
